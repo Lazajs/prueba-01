@@ -11,6 +11,7 @@ function ComponentProvider ({ children }: {children: React.ReactNode}) {
   const getList = () => localStorage.getItem('lectureList') ? JSON.parse(localStorage.getItem('lectureList') as string) : []
 
   useEffect(() => {
+    updateList()
     addEventListener('storage', updateList)
 
     return () => removeEventListener('storage', updateList)

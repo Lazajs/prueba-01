@@ -20,7 +20,9 @@ function Component ({ books, genres }: {books: LibraryBook[], genres: string[]})
 
   useEffect(() => {
     let FILTERED = books
-    if (pages > 0 || selectedGenre) FILTERED = books.filter(item => item.book.pages >= pages && (selectedGenre ? item.book.genre === selectedGenre : true))
+    if (pages > 0 || selectedGenre) {
+      FILTERED = books.filter(item => item.book.pages >= pages && (selectedGenre ? item.book.genre === selectedGenre : true))
+    }
     setShown(FILTERED)
   }, [books, pages, selectedGenre])
 
@@ -44,7 +46,7 @@ function Component ({ books, genres }: {books: LibraryBook[], genres: string[]})
           </select>
         </span>
       </nav>
-      <section className='flex h-ful items-center w-fit m-auto flex-wrap gap-10'>
+      <section className='flex min-h-[300px] items-center w-fit p-10 flex-wrap gap-10'>
         {
           shown.length === 0
             ? <p className='text-3xl font-bold'>Sorry, there are no books here!</p>
