@@ -6,10 +6,7 @@ import { useNotification } from '@/hooks/useNotification'
 export const ListOfLectureCTX = createContext<ListOfLectureProps | null>(null)
 
 function ComponentProvider ({ children }: {children: React.ReactNode}) {
-  const [listOfLecture, setListOfLecture] = useState<string[]>(() => {
-    const previous = localStorage.getItem('lectureList')
-    return previous ? JSON.parse(previous) : []
-  })
+  const [listOfLecture, setListOfLecture] = useState<string[]>([''])
   const showNotificationMessage = useNotification()
   const getList = () => localStorage.getItem('lectureList') ? JSON.parse(localStorage.getItem('lectureList') as string) : []
 
