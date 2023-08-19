@@ -46,10 +46,10 @@ function Component ({ books, genres }: {books: LibraryBook[], genres: string[]})
           </select>
         </span>
       </nav>
-      <section className='flex min-h-[300px] items-center w-fit p-10 flex-wrap gap-10'>
+      <section className='min-h-[300px] relative p-6 grid grid-cols-[repeat(auto-fill,minmax(230px,1fr))] gap-10'>
         {
           shown.length === 0
-            ? <p className='text-3xl font-bold'>Sorry, there are no books here!</p>
+            ? <p className='text-3xl font-bold absolute left-1/2 -translate-x-1/2 mt-10 text-center'>Sorry, there are no books here!</p>
             : shown.map(({ book }) => (
                 <Book toggleBook={toggleBook} key={book.title} {...book} />
             ))

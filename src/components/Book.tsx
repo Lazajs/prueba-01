@@ -7,9 +7,9 @@ interface Props extends BookT {
 
 export function Book ({ title, cover, toggleBook, ...props }: Props) {
   return (
-    <article onClick={() => toggleBook(title)} className='flex justify-around items-center flex-col shrink-0 h-[300px] bg-[#202124] p-2 w-[200px] hover:scale-105 transition-all cursor-pointer'>
-      <h3 className='text-center m-1'>{title}</h3>
-      <Image width={150} height={250} src={cover} alt='cover' />
+    <article onClick={() => toggleBook(title)} className='flex justify-around items-center flex-col bg-[#202124] px-2 py-4 hover:scale-105 transition-all cursor-pointer'>
+      <h3 className='text-center m-1 mb-3'>{title}</h3>
+      <Image width={300} height={300} className='aspect-[9/14] w-full h-full object-cover' src={cover} alt='cover' />
     </article>
   )
 }
